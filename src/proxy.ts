@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 import { AUTH_COOKIE } from "@/lib/auth";
 
-const protectedPaths = ["/", "/modules", "/screens"];
+const protectedPaths = ["/", "/modules", "/screens", "/orders", "/patients", "/specimens", "/results"];
 
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
@@ -25,5 +25,14 @@ export function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/", "/login", "/modules/:path*", "/screens/:path*"],
+  matcher: [
+    "/",
+    "/login",
+    "/modules/:path*",
+    "/screens/:path*",
+    "/orders/:path*",
+    "/patients/:path*",
+    "/specimens/:path*",
+    "/results/:path*",
+  ],
 };

@@ -12,25 +12,25 @@ const quickActions = [
   {
     title: "إدارة الطلبات",
     description: "متابعة الطلبات الجديدة والطلبات قيد التنفيذ.",
-    href: "/screens/orders_management",
+    href: "/orders",
     icon: ClipboardList,
   },
   {
     title: "تسجيل العينات",
     description: "استلام العينة والتحقق من بيانات المريض.",
-    href: "/screens/sample_registration",
+    href: "/specimens",
     icon: TestTube2,
   },
   {
     title: "إدخال النتائج",
     description: "إدخال النتائج الفنية ومراجعة القيم الحرجة.",
-    href: "/screens/enhanced_results_entry_with_voice_search",
+    href: "/results",
     icon: FlaskConical,
   },
   {
     title: "الفواتير والمدفوعات",
     description: "متابعة التحصيل والتغطيات التأمينية والفواتير.",
-    href: "/screens/billing_payments",
+    href: "/modules",
     icon: Wallet,
   },
 ];
@@ -58,7 +58,7 @@ export default async function HomePage() {
                   <Link href="/modules">
                     <Button variant="secondary">مركز الوحدات</Button>
                   </Link>
-                  <Link href="/screens/new_order_form">
+                  <Link href="/orders">
                     <Button>
                       إنشاء طلب جديد
                       <ArrowLeft className="size-4" />
@@ -112,7 +112,7 @@ export default async function HomePage() {
 
             <LiveDashboard />
 
-            <SectionCard title="خريطة الوحدات">
+            <SectionCard title="مرجع الشاشات والتصميمات">
               <div className="grid gap-4 md:grid-cols-2">
                 {categories.map((category) => (
                   <Link key={category.key} href="/modules" className="block">

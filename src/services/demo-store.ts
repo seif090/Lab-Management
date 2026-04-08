@@ -18,7 +18,6 @@ type DemoStoreState = {
 };
 
 declare global {
-  // eslint-disable-next-line no-var
   var __clinicalNexusStore__: DemoStoreState | undefined;
 }
 

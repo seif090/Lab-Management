@@ -31,11 +31,11 @@ export function AppFrame({
   sideTitle: string;
 }) {
   const navItems = [
-    { label: "الرئيسية", icon: LayoutDashboard, href: "/screens/main_layout" },
-    { label: "الطلبات", icon: ClipboardList, href: "/screens/orders_management" },
-    { label: "العينات", icon: TestTube2, href: "/screens/sample_registration" },
-    { label: "النتائج", icon: FileText, href: "/screens/enhanced_dashboard" },
-    { label: "الإعدادات", icon: Settings, href: "/" },
+    { label: "الرئيسية", icon: LayoutDashboard, href: "/" },
+    { label: "الطلبات", icon: ClipboardList, href: "/orders" },
+    { label: "العينات", icon: TestTube2, href: "/specimens" },
+    { label: "النتائج", icon: FileText, href: "/results" },
+    { label: "الإعدادات", icon: Settings, href: "/modules" },
   ];
 
   return (
@@ -55,7 +55,7 @@ export function AppFrame({
             <div className="flex flex-1 items-center gap-3">
               <div className="relative flex-1">
                 <Search className="pointer-events-none absolute right-4 top-1/2 size-4 -translate-y-1/2 text-slate-400" />
-                <Input placeholder="...ابحث عن مريض أو مورد أو طلب" className="pr-11" />
+                <Input placeholder="ابحث عن مريض أو مورد أو طلب..." className="pr-11" />
               </div>
             </div>
             <div className="flex items-center gap-2">
@@ -75,10 +75,12 @@ export function AppFrame({
               <h2 className="text-3xl font-extrabold text-primary">{brand}</h2>
               <p className="mt-1 text-xs font-semibold text-muted-foreground">{sideTitle}</p>
             </div>
-            <Button className="w-full">
-              <Plus className="size-4" />
-              طلب جديد
-            </Button>
+            <Link href="/orders">
+              <Button className="w-full">
+                <Plus className="size-4" />
+                طلب جديد
+              </Button>
+            </Link>
             <nav className="space-y-2">
               {navItems.map((item) => (
                 <Link

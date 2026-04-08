@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { startTransition, useEffect, useState } from "react";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { MetricGrid, SectionCard, SimpleTable, StatusPill } from "@/components/screens/shared";
@@ -45,7 +45,11 @@ export function LiveDashboard() {
   useEffect(() => {
     fetch("/api/dashboard")
       .then((response) => response.json())
-      .then((payload: DashboardResponse) => setData(payload));
+      .then((payload: DashboardResponse) => {
+        startTransition(() => {
+          setData(payload);
+        });
+      });
   }, []);
 
   if (!data) {
@@ -91,7 +95,7 @@ export function LiveDashboard() {
                 </p>
               </div>
             ))}
-            <Link href="/screens/enhanced_results_approval" className="block">
+            <Link href="/results" className="block">
               <Button className="w-full">
                 فتح مسار الاعتماد
                 <ArrowLeft className="size-4" />
